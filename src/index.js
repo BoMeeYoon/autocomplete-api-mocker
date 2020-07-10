@@ -1,6 +1,3 @@
-import Controller from './javascript/controller.js';
+import SearchKeywords from './javascript/SearchKeywords.js';
 
-
-(function () {
-  new Controller();
-})()
+(function () {new SearchKeywords()})()
