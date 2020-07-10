@@ -25,8 +25,8 @@ export default class SearchKeywords {
     this.inputEl.type = "text";
     this.inputEl.name = "keyword";
     this.inputEl.setAttribute("autocomplete", "off")
-    
-    this.inputBox.append(this.icon, this.inputEl);
+    this.resetBtn = createElement("div");
+    this.inputBox.append(this.icon, this.inputEl, this.resetBtn);
     this.form.append(this.inputBox, this.results);
     this.section.append(this.logo, this.form);
     this.searchKeyword;
@@ -35,14 +35,23 @@ export default class SearchKeywords {
   }
   init() {
     this.bindChangeKeywords();
+    this.bindClickBtn();
   }
 
   bindChangeKeywords() {
     this.inputEl.addEventListener("keyup", e => {
       if(!this.inputEl.value.length) return this.bindResetResults();
-      const {value} = e.target
+      addClassName(this.resetBtn, "search__input-reset");
+      const {value} = e.target;
       this.searchKeyword = value.toLowerCase().trim();
       this.sendApiHandler();
+    })
+  }
+
+  bindClickBtn() {
+    this.resetBtn.addEventListener("click", e => {
+      this.inputEl.value = "";
+      this.bindResetResults();
     })
   }
 
@@ -62,7 +71,7 @@ export default class SearchKeywords {
   }
 
   bindMountResults(data) {
-    this.results.innerHTML = !data.length ? `<li>일치하는 검색어가 없습니다</li>` : data.reduce((acc, crr) => acc += `<li>${crr}</li>`, "");
+    this.results.innerHTML = !data.length ? `<p">일치하는 검색어가 없습니다</p>` : data.reduce((acc, crr) => acc += `<li>${crr}</li>`, "");
     this.bindClickList();
   }
 
@@ -76,9 +85,11 @@ export default class SearchKeywords {
   }
 
   bindResetResults() {
+
     while(this.results.firstChild) {
       this.results.removeChild(this.results.firstChild);
     }  
     removeClassName(this.results, "search__results");
+    removeClassName(this.resetBtn, "search__input-reset");
   }
 }
