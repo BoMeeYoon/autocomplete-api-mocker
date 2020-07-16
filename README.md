@@ -8,6 +8,10 @@
 * 실제 개발환경과 비슷한 환경을 경험하기 위해 api-mocker를 사용해본다.
 * fetch 에 대한 이해를 높인다.
 
+## 기술스팩
+ * HTML5, CSS3, Javascript
+ * webpack, mocker api, josn data
+
 ## 서버 구동방법
 * client : `autocomplete` 현 폴더에서 `npm start`를 입력한다
 * server : `autocomplete` 현 폴더에서 `cd server` 폴더로 이동 후, `npm start`를 입력한다
