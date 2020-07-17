@@ -8,6 +8,12 @@
 * 실제 개발환경과 비슷한 환경을 경험하기 위해 api-mocker를 사용해본다.
 * fetch 에 대한 이해를 높인다.
 
+## 개발인원
+   - 개인프로젝트
+ 
+## 개발기간
+   - 7/8 - 7/10 
+
 ## 기술스팩
  * HTML5, CSS3, Javascript
  * webpack, mocker api, josn data
